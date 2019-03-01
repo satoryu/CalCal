@@ -1,22 +1,8 @@
 import Vue from 'vue'
-import Vuetify, {
-  VApp,
-  VNavigationDrawer,
-  VFooter,
-  VToolbar,
-  VFadeTransition
-} from 'vuetify/lib'
-import 'vuetify/dist/vuetify.min.css'
+import Vuetify from 'vuetify/lib'
+import 'vuetify/src/stylus/app.styl'
 
-Vue.use(Vuetify, {
-  components: {
-    VApp,
-    VNavigationDrawer,
-    VFooter,
-    VToolbar,
-    VFadeTransition
-  }
-})
+Vue.use(Vuetify)
 
 import App from './app.vue'
 

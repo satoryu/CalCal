@@ -24,6 +24,7 @@ const path = require("path");
 
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin");
 
 module.exports = {
   module: {
@@ -87,7 +88,10 @@ module.exports = {
       vue$: "vue/dist/vue.esm.js"
     }
   },
-  plugins: [new VueLoaderPlugin()],
+  plugins: [
+    new VueLoaderPlugin(),
+    new VuetifyLoaderPlugin()
+  ],
   optimization: {
     splitChunks: {
       cacheGroups: {
