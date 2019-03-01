@@ -57,6 +57,16 @@ module.exports = {
         use: ["style-loader", "css-loader", "stylus-loader"]
       },
       {
+        test: /\.(woff(2)?|ttf|eot|svg)/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/'
+          }
+        }]
+      },
+      {
         test: /\.(scss|css)$/,
 
         use: [
