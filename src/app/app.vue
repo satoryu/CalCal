@@ -1,19 +1,23 @@
 <template>
-  <div>
-    <h1>Calories Calculator</h1>
+  <v-app>
+    <v-container fluid>
+      <h1>Calories Calculator</h1>
 
-    <form @submit.prevent="calculate">
-      <input type="text" v-model="weight">
-      <input type="text" v-model="height">
-      <input type="text" v-model="age">
+      <v-layout column>
+        <v-flex xs12>
+          <v-layout row align-center justify-center fill-height>
+            <input type="text" v-model="weight">
+            <input type="text" v-model="height">
+            <input type="text" v-model="age">
+          </v-layout>
+        </v-flex>
 
-      <button type="submit">Calculate</button>
-    </form>
-
-    <div>
-      {{ calculate() }} kcal
-    </div>
-  </div>
+        <v-flex xs12>
+          {{ calculate() }} kcal
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
