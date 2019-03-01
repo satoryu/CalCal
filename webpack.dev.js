@@ -50,7 +50,13 @@ module.exports = {
 			{
 				use: ['vue-loader'],
 				test: /\.vue$/
-			},
+      },
+      {
+        test: /\.styl$/,
+        use: [
+          'style-loader', 'css-loader', 'stylus-loader'
+        ]
+      },
 			{
 				test: /\.(scss|css)$/,
 
@@ -63,9 +69,6 @@ module.exports = {
 					},
 					{
 						loader: 'sass-loader'
-					},
-					{
-						loader: 'vue-style-loader'
 					}
 				]
 			}
@@ -73,7 +76,7 @@ module.exports = {
 	},
 
 	entry: {
-		app: './src/app/index.js'
+    app: './src/app/index.js'
 	},
 
 	output: {
