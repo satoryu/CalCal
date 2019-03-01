@@ -6,6 +6,7 @@
       <v-layout column>
         <v-flex xs12>
           <v-layout row align-center justify-center fill-height>
+            <v-icon>laptop_mac</v-icon>
             <input type="text" v-model="weight">
             <input type="text" v-model="height">
             <input type="text" v-model="age">
