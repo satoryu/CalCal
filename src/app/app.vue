@@ -5,16 +5,38 @@
 
       <v-layout column>
         <v-flex xs12>
-          <v-layout row align-center justify-center fill-height>
-            <v-icon>laptop_mac</v-icon>
-            <input type="text" v-model="weight">
-            <input type="text" v-model="height">
-            <input type="text" v-model="age">
+          <v-layout column align-center justify-center fill-height>
+            <v-text-field
+              prepend-icon="mdi-weight-kilogram"
+              hint="Your weight in kilogram"
+              label="Weight"
+              suffix="kg"
+              v-model="weight"
+            />
+            <v-text-field
+              prepend-icon="mdi-ruler"
+              hint="Your height in cm"
+              label="Height"
+              suffix="cm"
+              v-model="height"
+            />
+            <v-text-field
+              prepend-icon="mdi-face"
+              hint="Your age"
+              label="Age"
+              suffix="  "
+              v-model="age"
+            />
+            <v-text-field
+              prepend-icon="mdi-fire"
+              suffix="kcal"
+              readonly=true
+              label="Calories"
+              v-model="calories"
+              color="red darken-1"
+              messages="Calories(kcal) you can consume per day."
+            />
           </v-layout>
-        </v-flex>
-
-        <v-flex xs12>
-          {{ calculate() }} kcal
         </v-flex>
       </v-layout>
     </v-container>
@@ -30,8 +52,8 @@ export default {
       age: 37
     };
   },
-  methods: {
-    calculate() {
+  computed: {
+    calories: function() {
       return (10.0 * this.weight + 6.25 * this.height - 5.0 * this.age)
     }
   }
