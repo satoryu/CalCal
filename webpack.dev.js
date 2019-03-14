@@ -1,5 +1,8 @@
 const webpack = require("webpack");
 const path = require("path");
+const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WebpackPwaManifest = require("webpack-pwa-manifest");
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -100,7 +103,32 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new VuetifyLoaderPlugin()
+    new VuetifyLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: "src/index.html"
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      globDirectory: "./dist",
+      globPatterns: ["*.{html,js,css}", "fonts/*.{eot,ttf,woff,woff2,svg}"],
+      swDest: "./sw.js",
+      clientsClaim: true,
+      skipWaiting: true
+    }),
+    new WebpackPwaManifest({
+      name: "Calories Calculator",
+      short_name: "CalCal",
+      description: "",
+      start_url: "/",
+      display: "standalone",
+      orientation: "portrait",
+      icons: [
+        {
+          "src": "./assets/icons/icon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    })
   ],
   optimization: {
     splitChunks: {
