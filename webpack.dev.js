@@ -3,6 +3,7 @@ const path = require("path");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -92,7 +93,8 @@ module.exports = {
   },
 
   output: {
-    filename: "[name].js"
+    filename: "[name].[contenthash].js",
+    path: path.resolve(__dirname, 'dist')
   },
 
   mode: "development",
@@ -102,6 +104,7 @@ module.exports = {
     }
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
     new VuetifyLoaderPlugin(),
     new HtmlWebpackPlugin({
@@ -131,11 +134,14 @@ module.exports = {
     })
   ],
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         vendors: {
           priority: -10,
-          test: /[\\/]node_modules[\\/]/
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
         }
       },
 
