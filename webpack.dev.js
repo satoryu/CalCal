@@ -121,7 +121,13 @@ module.exports = {
       start_url: "/",
       display: "standalone",
       orientation: "portrait",
-      icons: []
+      icons: [
+        {
+          "src": "./assets/icons/icon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     })
   ],
   optimization: {
