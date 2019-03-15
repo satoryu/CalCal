@@ -30,7 +30,7 @@
             <v-text-field
               prepend-icon="mdi-fire"
               suffix="kcal"
-              readonly=true
+              readonly="true"
               label="Calories"
               v-model="calories"
               color="red darken-1"
@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     calories: function() {
-      return (10.0 * this.weight + 6.25 * this.height - 5.0 * this.age)
+      return 10.0 * this.weight + 6.25 * this.height - 5.0 * this.age;
     }
   }
 };
