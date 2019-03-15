@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-container fluid>
-      <h1>Calories Calculator</h1>
+      <h1>CalCal</h1>
 
       <v-layout column>
         <v-flex xs12>
