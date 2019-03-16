@@ -62,13 +62,15 @@ module.exports = {
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts/'
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "fonts/"
+            }
           }
-        }]
+        ]
       },
       {
         test: /\.(scss|css)$/,
@@ -93,7 +95,7 @@ module.exports = {
 
   output: {
     filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, "dist")
   },
 
   mode: "development",
@@ -119,28 +121,28 @@ module.exports = {
     new WebpackPwaManifest({
       name: "Calories Calculator",
       short_name: "CalCal",
-      description: "",
+      description: "Tiny Application made in Vue.js to calculate calories.",
       start_url: "/",
       display: "standalone",
       orientation: "portrait",
       icons: [
         {
-          "src": "./assets/icons/icon-192x192.png",
-          "sizes": "192x192",
-          "type": "image/png"
+          src: "./assets/icons/icon-192x192.png",
+          sizes: "192x192",
+          type: "image/png"
         }
       ]
     })
   ],
   optimization: {
-    runtimeChunk: 'single',
+    runtimeChunk: "single",
     splitChunks: {
       cacheGroups: {
         vendors: {
           priority: -10,
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
+          name: "vendors",
+          chunks: "all"
         }
       },
 
