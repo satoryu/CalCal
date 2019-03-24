@@ -132,6 +132,9 @@ module.exports = {
           type: "image/png"
         }
       ]
+    }),
+    new webpack.DefinePlugin({
+      INSTRUMENTATION_KEY: JSON.stringify(process.env.INSTRUMENTATION_KEY)
     })
   ],
   optimization: {
