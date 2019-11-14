@@ -3,7 +3,7 @@ const path = require("path");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -73,16 +73,23 @@ module.exports = {
         ]
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.s(c|a)ss$/,
         use: [
+          "vue-style-loader",
+          "css-loader",
           {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader"
-          },
-          {
-            loader: "sass-loader"
+            loader: "sass-loader",
+            options: {
+              implementation: require("sass"),
+              sassOptions: {
+                fiber: require("fibers"),
+                indentedSyntax: true
+              }
+            }
           }
         ]
       }
@@ -101,7 +108,8 @@ module.exports = {
   mode: "development",
   resolve: {
     alias: {
-      vue$: "vue/dist/vue.esm.js"
+      vue$: "vue/dist/vue.esm.js",
+      "@": path.join(__dirname, "src")
     }
   },
   plugins: [

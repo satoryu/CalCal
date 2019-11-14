@@ -2,7 +2,7 @@
   <v-footer app dark>
     <v-spacer></v-spacer>
 
-    <v-btn icon flat href="https://twitter.com/sato_ryu">
+    <v-btn icon text href="https://twitter.com/sato_ryu">
       <v-icon>mdi-twitter-circle</v-icon>
     </v-btn>
     <v-btn icon href="https://github.com/satoryu/CalCal">
@@ -13,7 +13,5 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>

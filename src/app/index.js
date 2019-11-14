@@ -10,29 +10,24 @@ if ("serviceWorker" in navigator) {
 /**
  * Application Insights
  */
-import { AppInsights } from 'applicationinsights-js'
+import { AppInsights } from "applicationinsights-js";
 
 if (INSTRUMENTATION_KEY) {
   AppInsights.downloadAndSetup({ instrumentationKey: INSTRUMENTATION_KEY });
-  AppInsights.trackPageView()
+  AppInsights.trackPageView();
 }
 
 /**
  * Vue.js
  */
-import "@mdi/font/css/materialdesignicons.css";
 import Vue from "vue";
-import Vuetify from "vuetify/lib";
-import "vuetify/src/stylus/app.styl";
-
-Vue.use(Vuetify, {
-  iconfont: "mdi"
-});
+import vuetify from "@/plugins/vuetify";
 
 import CalCal from "./CalCal.vue";
 
 new Vue({
   el: "#app",
+  vuetify,
   components: { CalCal },
   template: `<CalCal></CalCal>`
 });
