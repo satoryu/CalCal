@@ -18,15 +18,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
  *
  */
 
-/*
- * We've enabled UglifyJSPlugin for you! This minifies your app
- * in order to load faster and run less javascript.
- *
- * https://github.com/webpack-contrib/uglifyjs-webpack-plugin
- *
- */
-
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin");
 
@@ -41,6 +32,7 @@ module.exports = {
           plugins: ["syntax-dynamic-import"],
 
           presets: [
+            "minify",
             [
               "@babel/preset-env",
               {
@@ -161,7 +153,6 @@ module.exports = {
       minChunks: 1,
       minSize: 30000,
       name: true
-    },
-    minimizer: [new UglifyJSPlugin()]
+    }
   }
 };
