@@ -1,46 +1,42 @@
 <template>
-  <div>
-    <v-content>
-      <v-container fluid>
-        <v-layout column>
-          <v-flex xs12>
-            <v-layout column align-center justify-center fill-height>
-              <v-text-field
-                prepend-icon="mdi-weight-kilogram"
-                hint="Your weight in kilogram"
-                label="Weight"
-                suffix="kg"
-                v-model="weight"
-              />
-              <v-text-field
-                prepend-icon="mdi-ruler"
-                hint="Your height in cm"
-                label="Height"
-                suffix="cm"
-                v-model="height"
-              />
-              <v-text-field
-                prepend-icon="mdi-face"
-                hint="Your age"
-                label="Age"
-                suffix="  "
-                v-model="age"
-              />
-              <v-text-field
-                prepend-icon="mdi-fire"
-                suffix="kcal"
-                readonly
-                label="Calories"
-                v-model="calories"
-                color="red darken-1"
-                messages="Calories(kcal) you can consume per day."
-              />
-            </v-layout>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-content>
-  </div>
+  <v-main>
+    <v-container fluid>
+      <div class="d-flex flex-column">
+        <div class="d-flex flex-column align-center justify-center">
+          <v-text-field
+            prepend-icon="fas fa-weight"
+            hint="Your weight in kilogram"
+            label="Weight"
+            suffix="kg"
+            v-model="weight"
+          />
+          <v-text-field
+            prepend-icon="fas fa-ruler"
+            hint="Your height in cm"
+            label="Height"
+            suffix="cm"
+            v-model="height"
+          />
+          <v-text-field
+            prepend-icon="far fa-smile"
+            hint="Your age"
+            label="Age"
+            suffix="  "
+            v-model="age"
+          />
+          <v-text-field
+            prepend-icon="fas fa-burn"
+            suffix="kcal"
+            readonly
+            label="Calories"
+            v-model="calories"
+            color="red darken-1"
+            messages="Calories(kcal) you can consume per day."
+          />
+        </div>
+      </div>
+    </v-container>
+  </v-main>
 </template>
 <script>
 export default {

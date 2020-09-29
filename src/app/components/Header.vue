@@ -3,9 +3,10 @@
     <v-app-bar app scroll-off-screen>
       <v-toolbar-title>CalCal</v-toolbar-title>
       <v-spacer></v-spacer>
+
       <v-toolbar-items>
         <v-btn icon @click.stop="dialog = true">
-          <v-icon>mdi-help-circle-outline</v-icon>
+          <v-icon>far fa-question-circle</v-icon>
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
@@ -27,7 +28,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn @click="dialog = false">
-            <v-icon>mdi-thumb-up-outline</v-icon>I got it!
+            <v-icon>far fa-thumbs-up</v-icon>I got it!
           </v-btn>
         </v-card-actions>
       </v-card>

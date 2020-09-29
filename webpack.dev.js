@@ -112,8 +112,6 @@ module.exports = {
       template: "src/index.html"
     }),
     new WorkboxWebpackPlugin.GenerateSW({
-      globDirectory: "./dist",
-      globPatterns: ["*.{html,js,css}", "fonts/*.{eot,ttf,woff,woff2,svg}"],
       swDest: "./sw.js",
       clientsClaim: true,
       skipWaiting: true
