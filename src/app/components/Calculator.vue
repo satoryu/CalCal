@@ -24,6 +24,11 @@
             suffix="  "
             v-model="age"
           />
+          <v-radio-group v-model="gender" prepend-icon="fas fa-venus-mars" row>
+            <v-radio label="Male" value="male"></v-radio>
+            <v-radio label="Female" value="female"></v-radio>
+          </v-radio-group>
+
           <v-text-field
             prepend-icon="fas fa-burn"
             suffix="kcal"
@@ -38,19 +43,27 @@
     </v-container>
   </v-main>
 </template>
+
 <script>
 export default {
   data() {
     return {
       weight: 63.0,
       height: 168.0,
-      age: 37
+      age: 37,
+      gender: "male",
     };
   },
   computed: {
-    calories: function() {
-      return 10.0 * this.weight + 6.25 * this.height - 5.0 * this.age;
+    calories: function () {
+      return (0.0481 * this.weight + 0.0234 * this.height - 0.0138 * this.age - this.base) * 1000 / 4.186;
+    },
+    base: function () {
+      if (this.gender == 'male') {
+        return 0.4235;
+      }
+      return 0.9708;
     }
-  }
-}
+  },
+};
 </script>
